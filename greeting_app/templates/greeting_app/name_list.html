@@ -1,0 +1,26 @@
+{% extends 'greeting_app/base.html' %}
+
+{% block title %}Список имен{% endblock %}
+
+{% block content %}
+<div class="names-container">
+    <h2>Все введенные имена</h2>
+    
+    {% if names %}
+        <div class="names-list">
+            {% for name in names %}
+                <div class="name-item">
+                    <span class="name">{{ name.name }}</span>
+                    <span class="date">{{ name.created_at|date:"d.m.Y H:i" }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-names">Пока нет сохраненных имен.</p>
+    {% endif %}
+    
+    <div class="actions">
+        <a href="{% url 'greeting_app:index' %}" class="btn">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

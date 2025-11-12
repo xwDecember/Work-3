@@ -1,0 +1,16 @@
+{% extends 'greeting_app/base.html' %}
+
+{% block title %}Приветствие{% endblock %}
+
+{% block content %}
+<div class="greeting-container">
+    <div class="greeting-card">
+        <h2>Привет, {{ name }}! 👋</h2>
+        <p>Рады видеть вас в нашем приложении!</p>
+        <div class="actions">
+            <a href="{% url 'greeting_app:index' %}" class="btn">Ввести другое имя</a>
+            <a href="{% url 'greeting_app:name_list' %}" class="btn secondary">Посмотреть все имена</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
