@@ -8,7 +8,7 @@ def index(request):
     return render(request, 'greeting_app/index.html', {'form': form})
 
 def greeting(request):
-    """Страница приветствия"""
+    """Обрабатываем имя и показываем приветствие"""
     if request.method == 'POST':
         form = NameForm(request.POST)
         if form.is_valid():
@@ -18,7 +18,7 @@ def greeting(request):
             # Отображаем приветствие
             return render(request, 'greeting_app/greeting.html', {'name': name})
         else:
-            # Если форма не валидна, показываем ошибки
+            # если форма не валидна, показываем ошибки
             return render(request, 'greeting_app/index.html', {'form': form})
     else:
         # Если GET запрос, перенаправляем на главную
